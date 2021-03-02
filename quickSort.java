@@ -1,66 +1,68 @@
-import java.util.Scanner;
 import java.util.Arrays;
 
-class QuickSort 
+public class QuickSort
 {
-  private void swap(int i, int j)
+  public static void main(String args[])
   {
-    int temp = b[i];
-    b[i] = b[j];
-    b[j] = temp;
+    int[] a = {1, 9, 5, 2, 7, 4, 8, 5};
+    System.out.println("Unsorted: " + Arrays.toString(a));
+
+    QS algorithm = new QS();
+
+    algorithm.sort(a);
+
+    System.out.println("Sorted: " + Arrays.toString(a));
   }
+}
 
-  public void sort(int[] a)
-  {
-    if (a == null || a.length == 0)
-      return;
-    this.b = a;
-    length = a.length;
-    quickSort(0, length - 1);
-  }
+class QS
+{
+  private int input[];
+  private int len;
 
-  private void qSort(int bottom, int top)
-  {
-    int i = bottom;
-    int j = top;
+  public void sort(int[] n) 
+  { 
+    if (n == null || n.length == 0) 
+      return; 
 
-    int p = b[bottom + (top - bottom) / 2];
+      this.input = n; 
+      len = n.length; 
+      quickSort(0, len - 1); 
+  } 
 
-    if (bottom < j)
-      qSort(bottom, j);
+  private void quickSort(int l, int h) 
+  { 
+    int i = l; 
+    int j = h;  
+    int p = input[l + (h - l) / 2];
     
-    if (i < top)
-      qSort(i, top);
-
-    while (i < j)
+    while (i <= j)
     {
-      while (b[i] < p)
-        i++;
-      
-      while (b[j] > p)
-        j--;
-      
+      while (input[i] < p) 
+        i++; 
+ 
+      while (input[j] > p) 
+        j--; 
+
       if (i <= j)
       {
-        swap(i, j);
-        i++;
+        swap(i, j);  
+        i++; 
         j--;
-      }
+      } 
     }
+
+    if (l < j) 
+      quickSort(l, j); 
+
+    if (i < h) 
+      quickSort(i, h);
   }
 
-  public static void main(String[] args) 
-  {
-    Scanner s = new Scanner(System.in);
-    System.out.println("Enter number of elements: ");
-    
-    int len = s.nextInt();
-    int[] a = new int[len];
-
-    System.out.printf("Enter %d integers %n", len);
-    for (int i = 0; i < len; i++)
-      a[i] = s.nextInt();
-
-    System.out.println("Unsorted array: " + a);
+  private void swap(int i, int j) 
+  { 
+    int temp = input[i]; 
+    input[i] = input[j]; 
+    input[j] = temp; 
   }
 }
