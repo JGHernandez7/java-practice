@@ -10,6 +10,8 @@ class ReverseLL
     linkedlist.add(new LL.Node(4));
     linkedlist.add(new LL.Node(5));
     linkedlist.add(new LL.Node(6));
+    linkedlist.add(new LL.Node(9));
+    linkedlist.add(new LL.Node(8));
     linkedlist.add(new LL.Node(7));
     
     linkedlist.print();
