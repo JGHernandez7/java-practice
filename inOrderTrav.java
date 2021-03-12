@@ -9,9 +9,11 @@ class InOrderTrav
     bt.root = root; 
 
     bt.root.left = new BTree.TNode("5"); 
-    bt.root.left.left = new BTree.TNode("4"); bt.root.left.right = new BTree.TNode("6"); 
-    bt.root.right = new BTree.TNode("8"); 
-    bt.root.right.right = new BTree.TNode("9");
+    bt.root.left.left = new BTree.TNode("4"); 
+    bt.root.left.right = new BTree.TNode("6"); 
+    bt.root.right = new BTree.TNode("9"); 
+    bt.root.right.left = new BTree.TNode("8");
+    bt.root.right.right = new BTree.TNode("10");
 
     bt.inOrder();
     System.out.println();
